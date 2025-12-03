@@ -16,7 +16,7 @@ title: "Masked Diffusion Language Models"
 
 </div>
 <br>
-<div style="text-align: center;">2025, Dec 3rd</div>
+<div style="text-align: center;">Dec 3rd, 2025</div>
 
 ---
 
@@ -95,7 +95,9 @@ title: "Masked Diffusion Language Models"
 ## Masking Schedule
 
 **Forward Process**:
-$$q(x_t | x_0) = \text{Mask tokens according to schedule}$$
+$$q(x_t | x_0) = \prod_{i=1}^{n} q(x_t^{(i)} | x_0^{(i)}, t)$$
+
+where tokens are masked with probability determined by the schedule.
 
 **Key Parameters**:
 - Number of diffusion steps $T$
@@ -137,7 +139,9 @@ $$q(x_t | x_0) = \text{Mask tokens according to schedule}$$
 6. Backpropagate and update parameters
 
 **Loss Function**:
-$$\mathcal{L} = \mathbb{E}_{x_0, t} [\text{CrossEntropy}(\hat{x}_0, x_0)]$$
+$$\mathcal{L} = \mathbb{E}_{x_0, t} [-\log p_\theta(x_0 | x_t, t)]$$
+
+where $p_\theta(x_0 | x_t, t) = f_\theta(x_t, t)$ is the model's prediction.
 
 ---
 
@@ -215,7 +219,8 @@ $$\mathcal{L} = \mathbb{E}_{x_0, t} [\text{CrossEntropy}(\hat{x}_0, x_0)]$$
 - Trade-off between quality and speed via number of steps
 
 **Speedup Analysis**:
-- $O(T)$ generation steps vs $O(n)$ for autoregressive
+- $O(T)$ generation steps (where $T$ = number of diffusion steps)
+- vs $O(n)$ for autoregressive (where $n$ = sequence length)
 - Can adjust $T$ for speed-quality trade-off
 - Particularly efficient with modern hardware (GPUs/TPUs)
 
