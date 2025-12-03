@@ -52,13 +52,52 @@ style: |
 
 ### 1. The Forward Process: Comparison
 
-| Feature | Continuous (Standard DDPM) | MDLM (Masked Diffusion) |
-| :--- | :--- | :--- |
-| **Core Mechanism** | Additive Gaussian Noise | Interpolation / Masking |
-| **Transition Function** | $$q(\mathbf{z}\_t\|\mathbf{z}\_{t-1}) = \mathcal{N}(\mathbf{z}\_t; \sqrt{1-\beta_t}\mathbf{z}\_{t-1}, \beta_t \mathbf{I})$$| $$q(\mathbf{z}\_t\|\mathbf{z}\_s) = \text{Cat}(\mathbf{z}\_t; \mathbf{Q}\_{t\mid s}^\top z_s) =  \text{Cat}(\mathbf{z}\_t; \alpha_{t\mid s} \mathbf{z}\_{s} + (1-\alpha_{t\mid s})\mathbf{m})$$ $$Q_{t\mid s}=\alpha_{t\mid s}\mathbf{I}+ (1-\alpha_{t\mid s})\mathbf{1}\mathbf{m}^\top, \alpha_{t\mid s}=\frac{\alpha_t}{\alpha_s}$$|
-| **Marginal Distribution**$q(\mathbf{z}\_t\|\mathbf{x})$ | $$\mathcal{N}(\mathbf{z}\_t; \sqrt{\bar{\alpha}_t}\mathbf{x}, (1-\bar{\alpha}_t)\mathbf{I})$$ | $$\text{Cat}(\mathbf{z}\_t; \alpha_t \mathbf{x} + (1-\alpha_t)\mathbf{m})$$ |
-| **State Space** | **Continuous** ($\mathbf{z}\_t \in \mathbb{R}^D$)<br>Value shifts gradually; info is obscured by noise variance. | **Discrete (Absorbing)** ($\mathbf{z}\_t \in \{\mathbf{x}, \mathbf{m}\}$)<br>Token is either clean or strictly `[MASK]`. Once masked, info is lost (absorbing). |
-| **Schedule** | Variance schedule $\beta_t$ (or $\alpha_t$) controls noise level. | $\alpha_t$ is strictly decreasing ($1 \to 0$); represents probability of token being unmasked. |
+<div style="width: 100%; overflow-x: auto;">
+  <table style="width: 100%; font-size: 0.55em; border-collapse: collapse;">
+    <thead>
+      <tr style="border-bottom: 2px solid #fff;">
+        <th style="text-align: left; padding: 10px; width: 15%;">Feature</th>
+        <th style="text-align: left; padding: 10px; width: 42%;">Continuous (Standard DDPM)</th>
+        <th style="text-align: left; padding: 10px; width: 43%;">MDLM (Masked Diffusion)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #555;">
+        <td style="padding: 8px;"><strong>Core Mechanism</strong></td>
+        <td style="padding: 8px;">Additive Gaussian Noise</td>
+        <td style="padding: 8px;">Interpolation / Masking</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #555;">
+        <td style="padding: 8px;"><strong>Transition Function</strong></td>
+        <td style="padding: 8px;">$$q(\mathbf{z}_t\|\mathbf{z}_{t-1}) = \mathcal{N}(\mathbf{z}_t; \sqrt{1-\beta_t}\mathbf{z}_{t-1}, \beta_t \mathbf{I})$$</td>
+        <td style="padding: 8px;">
+            $$q(\mathbf{z}_t\|\mathbf{z}_s) = \text{Cat}(\mathbf{z}_t; \mathbf{Q}_{t\mid s}^\top z_s) =  \text{Cat}(\mathbf{z}_t; \alpha_{t\mid s} \mathbf{z}_{s} + (1-\alpha_{t\mid s})\mathbf{m})$$
+            <br>
+            $$Q_{t\mid s}=\alpha_{t\mid s}\mathbf{I}+ (1-\alpha_{t\mid s})\mathbf{1}\mathbf{m}^\top, \alpha_{t\mid s}=\frac{\alpha_t}{\alpha_s}$$
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid #555;">
+        <td style="padding: 8px;"><strong>Marginal Distribution</strong> $q(\mathbf{z}_t\|\mathbf{x})$</td>
+        <td style="padding: 8px;">$$\mathcal{N}(\mathbf{z}_t; \sqrt{\bar{\alpha}_t}\mathbf{x}, (1-\bar{\alpha}_t)\mathbf{I})$$</td>
+        <td style="padding: 8px;">$$\text{Cat}(\mathbf{z}_t; \alpha_t \mathbf{x} + (1-\alpha_t)\mathbf{m})$$</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #555;">
+        <td style="padding: 8px;"><strong>State Space</strong></td>
+        <td style="padding: 8px;">
+            <strong>Continuous</strong> ($\mathbf{z}_t \in \mathbb{R}^D$)<br>Value shifts gradually; info is obscured by noise variance.
+        </td>
+        <td style="padding: 8px;">
+            <strong>Discrete (Absorbing)</strong> ($\mathbf{z}_t \in \{\mathbf{x}, \mathbf{m}\}$)<br>Token is either clean or strictly <code>[MASK]</code>. Once masked, info is lost (absorbing).
+        </td>
+      </tr>
+      <tr>
+        <td style="padding: 8px;"><strong>Schedule</strong></td>
+        <td style="padding: 8px;">Variance schedule $\beta_t$ (or $\alpha_t$) controls noise level.</td>
+        <td style="padding: 8px;">$\alpha_t$ is strictly decreasing ($1 \to 0$); represents probability of token being unmasked.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ---
 
