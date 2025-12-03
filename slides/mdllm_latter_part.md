@@ -53,7 +53,11 @@ Where:
     <!-- TODO: estimate the bound of PPL-->
 
 ---
-## 
+
+## Experiments
++ Language Modelling Benchmarks
++ Downstream NLP Tasks
++ DNA Sequence Modelling
 
 ---
 
