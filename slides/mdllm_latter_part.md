@@ -61,7 +61,7 @@ Where:
 
 ---
 
-## Table 1: Main Results on Language Modeling Benchmarks
+## Language Modeling Results: `LM1B`
 
 <div style="display: flex; gap: 28px; align-items: flex-start; font-size: 24px; line-height: 1.35; max-width: 1180px; margin: 0 auto;">
   <div style="flex: 0 0 62%;">
@@ -143,7 +143,7 @@ Where:
   <div style="flex: 1;">
     <div style="font-size: 26px; margin: 0 0 12px 0;">Key takeaways</div>
     <ul style="margin: 0; padding-left: 18px; font-size: 24px; line-height: 1.45;">
-      <li>Retrained transformer (327B tokens) reaches the best overall PPL (20.86).</li>
+      <li><strong>LM1B:</strong> <br> One Billion Word Benchmark for Measuring Progress in Statistical Language Modeling <br><br><strong>Origin:</strong> WMT 2011 English News Crawl<br><strong>Feature:</strong> Only short sentenses, and sentenses are shuffled.</li>
       <li>Our MDLM at 327B tokens sets the best diffusion bound so far (&le;23.00), closing most of the gap to AR.</li>
       <li>Scaling tokens helps both AR and diffusion; moving from 33B to 327B cuts PPL notably for each family.</li>
     </ul>
