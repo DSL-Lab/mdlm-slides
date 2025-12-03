@@ -191,6 +191,8 @@ Where:
   </div>
 </div>
 
+**Takehome Message:** MDLM outperforms SEDD on OWT dataset as well.
+
 ---
 
 ## Language Modeling Results (out of dist.)
@@ -247,12 +249,21 @@ Where:
   </table>
 </div>
 
-+ **PTB:** Related to Wall Street Journal; **Lambada:** English novels in BookCorpus.
-+ **PubMed:** Citations and abstracts from biomedical literature.
+<div class="fragment fade-out" data-fragment-index="1" style="font-size: 36px; line-height: 1.45; margin: 16px 0 8px 0; padding-left: 18px;">
+  <div style="font-weight: 600; margin: 0 0 6px 0;">Datasets</div>
+  <ul style="margin: 0; padding-left: 18px;">
+    <li><strong>PTB:</strong> Related to Wall Street Journal; <strong>Lambada:</strong> English novels in BookCorpus.</li>
+    <li><strong>PubMed:</strong> Citations and abstracts from biomedical literature.</li>
+  </ul>
+</div>
 
-**Takehome Message:** 
-MDLM outperforms SEDD on all datasets mentioned
-Comparing with AR models; MDLM seems  better on generalization.
+<div class="fragment" data-fragment-index="2" style="font-size: 36px; line-height: 1.45; margin: 12px 0 0 0; padding-left: 18px;">
+  <div style="font-weight: 700; margin: 0 0 6px 0;">Takehome Message</div>
+  <ul style="margin: 0; padding-left: 18px;">
+    <li>MDLM outperforms SEDD on all datasets mentioned.</li>
+    <li>Compared to AR models, MDLM shows better generalization.</li>
+  </ul>
+</div>
 ---
 
 ## Table 4
