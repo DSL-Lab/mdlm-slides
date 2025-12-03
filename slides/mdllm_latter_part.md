@@ -58,7 +58,7 @@ Where:
 ---
 ## Table 1: Main Results on Language Modeling Benchmarks
 
-<div style="font-size: 18px; line-height: 1.35;">
+<div style="font-size: 28px; line-height: 1.35;">
   <div style="margin: 0 0 12px 0;">
     Table 1: Test perplexities (PPL; &darr;) on LM1B. &dagger;Reported in He et al. [26]. Best diffusion value is bolded.
   </div>
@@ -136,4 +136,4 @@ Where:
 </div>
 
 ---
-## 
+## Table 2
