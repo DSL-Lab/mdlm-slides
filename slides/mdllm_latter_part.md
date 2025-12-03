@@ -63,81 +63,91 @@ Where:
 
 ## Table 1: Main Results on Language Modeling Benchmarks
 
-<div style="font-size: 28px; line-height: 1.35; max-width: 860px; margin: 0 auto;">
-  <div style="margin: 0 0 12px 0;">
-    Table 1: Test perplexities (PPL; &darr;) on LM1B. &dagger;Reported in He et al. [26]. Best diffusion value is bolded.
+<div style="display: flex; gap: 28px; align-items: flex-start; font-size: 24px; line-height: 1.35; max-width: 1180px; margin: 0 auto;">
+  <div style="flex: 0 0 62%;">
+    <div style="font-size: 28px; margin: 0 0 12px 0;">
+      Table 1: Test perplexities (PPL; &darr;) on LM1B. &dagger;Reported in <a href="https://arxiv.org/abs/2211.15029">Diffusion-bert</a>. Best diffusion value is bolded.
+    </div>
+    <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 24px;">
+      <thead>
+        <tr>
+          <th style="width: 26%; border-top: 2px solid #000; border-bottom: 1px solid #000;"></th>
+          <th style="width: 44%; border-top: 2px solid #000; border-bottom: 1px solid #000;"></th>
+          <th style="width: 15%; text-align: center; border-top: 2px solid #000; border-bottom: 1px solid #000;">Parameters</th>
+          <th style="width: 15%; text-align: center; border-top: 2px solid #000; border-bottom: 1px solid #000;">PPL (&darr;)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-style: italic;" rowspan="2">Autoregressive</td>
+          <td>Transformer-X Base [13]</td>
+          <td style="text-align: center;">0.46B</td>
+          <td style="text-align: center;">23.5</td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #000;">OmniNet<sub>T</sub> [61]</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">100M</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">21.5</td>
+        </tr>
+        <tr>
+          <td style="font-style: italic; border-top: 1px solid #000;" rowspan="5">Diffusion</td>
+          <td style="border-top: 1px solid #000;">BERT-Mouth [64]&dagger;</td>
+          <td style="text-align: center; border-top: 1px solid #000;">110M</td>
+          <td style="text-align: center; border-top: 1px solid #000;">&le;142.89</td>
+        </tr>
+        <tr>
+          <td>D3PM (absorb) [1]</td>
+          <td style="text-align: center;">70M</td>
+          <td style="text-align: center;">&le;76.90</td>
+        </tr>
+        <tr>
+          <td>Diffusion-LM [30]&dagger;</td>
+          <td style="text-align: center;">80M</td>
+          <td style="text-align: center;">&le;118.62</td>
+        </tr>
+        <tr>
+          <td>DiffusionBert [26]</td>
+          <td style="text-align: center;">110M</td>
+          <td style="text-align: center;">&le;63.78</td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #000;">SEDD [33] (33B tokens)</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">&le; 32.79</td>
+        </tr>
+        <tr>
+          <td style="font-style: italic; border-top: 1px solid #000;" rowspan="2">Autoregressive<br>(Retrained)</td>
+          <td style="border-top: 1px solid #000;">Transformer (33B tokens)</td>
+          <td style="text-align: center; border-top: 1px solid #000;">110M</td>
+          <td style="text-align: center; border-top: 1px solid #000;">22.32</td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #000;">Transformer (327B tokens)</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">20.86</td>
+        </tr>
+        <tr>
+          <td style="font-style: italic; border-top: 1px solid #000;" rowspan="2">Diffusion<br>(Ours)</td>
+          <td style="border-top: 1px solid #000;">MDLM (33B tokens)</td>
+          <td style="text-align: center; border-top: 1px solid #000;">110M</td>
+          <td style="text-align: center; border-top: 1px solid #000;">&le;27.04</td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #000;">MDLM (327B tokens)</td>
+          <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
+          <td style="text-align: center; font-weight: bold; border-bottom: 1px solid #000;">&le;23.00</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 24px;">
-    <thead>
-      <tr>
-        <th style="width: 26%; border-top: 2px solid #000; border-bottom: 1px solid #000;"></th>
-        <th style="width: 44%; border-top: 2px solid #000; border-bottom: 1px solid #000;"></th>
-        <th style="width: 15%; text-align: center; border-top: 2px solid #000; border-bottom: 1px solid #000;">Parameters</th>
-        <th style="width: 15%; text-align: center; border-top: 2px solid #000; border-bottom: 1px solid #000;">PPL (&darr;)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="font-style: italic;" rowspan="2">Autoregressive</td>
-        <td>Transformer-X Base [13]</td>
-        <td style="text-align: center;">0.46B</td>
-        <td style="text-align: center;">23.5</td>
-      </tr>
-      <tr>
-        <td style="border-bottom: 1px solid #000;">OmniNet<sub>T</sub> [61]</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">100M</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">21.5</td>
-      </tr>
-      <tr>
-        <td style="font-style: italic; border-top: 1px solid #000;" rowspan="5">Diffusion</td>
-        <td style="border-top: 1px solid #000;">BERT-Mouth [64]&dagger;</td>
-        <td style="text-align: center; border-top: 1px solid #000;">110M</td>
-        <td style="text-align: center; border-top: 1px solid #000;">&le;142.89</td>
-      </tr>
-      <tr>
-        <td>D3PM (absorb) [1]</td>
-        <td style="text-align: center;">70M</td>
-        <td style="text-align: center;">&le;76.90</td>
-      </tr>
-      <tr>
-        <td>Diffusion-LM [30]&dagger;</td>
-        <td style="text-align: center;">80M</td>
-        <td style="text-align: center;">&le;118.62</td>
-      </tr>
-      <tr>
-        <td>DiffusionBert [26]</td>
-        <td style="text-align: center;">110M</td>
-        <td style="text-align: center;">&le;63.78</td>
-      </tr>
-      <tr>
-        <td style="border-bottom: 1px solid #000;">SEDD [33] (33B tokens)</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">&le; 32.79</td>
-      </tr>
-      <tr>
-        <td style="font-style: italic; border-top: 1px solid #000;" rowspan="2">Autoregressive<br>(Retrained)</td>
-        <td style="border-top: 1px solid #000;">Transformer (33B tokens)</td>
-        <td style="text-align: center; border-top: 1px solid #000;">110M</td>
-        <td style="text-align: center; border-top: 1px solid #000;">22.32</td>
-      </tr>
-      <tr>
-        <td style="border-bottom: 1px solid #000;">Transformer (327B tokens)</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">20.86</td>
-      </tr>
-      <tr>
-        <td style="font-style: italic; border-top: 1px solid #000;" rowspan="2">Diffusion<br>(Ours)</td>
-        <td style="border-top: 1px solid #000;">MDLM (33B tokens)</td>
-        <td style="text-align: center; border-top: 1px solid #000;">110M</td>
-        <td style="text-align: center; border-top: 1px solid #000;">&le;27.04</td>
-      </tr>
-      <tr>
-        <td style="border-bottom: 1px solid #000;">MDLM (327B tokens)</td>
-        <td style="text-align: center; border-bottom: 1px solid #000;">110M</td>
-        <td style="text-align: center; font-weight: bold; border-bottom: 1px solid #000;">&le;23.00</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="flex: 1;">
+    <div style="font-size: 26px; margin: 0 0 12px 0;">Key takeaways</div>
+    <ul style="margin: 0; padding-left: 18px; font-size: 24px; line-height: 1.45;">
+      <li>Retrained transformer (327B tokens) reaches the best overall PPL (20.86).</li>
+      <li>Our MDLM at 327B tokens sets the best diffusion bound so far (&le;23.00), closing most of the gap to AR.</li>
+      <li>Scaling tokens helps both AR and diffusion; moving from 33B to 327B cuts PPL notably for each family.</li>
+    </ul>
+  </div>
 </div>
 
 ---
