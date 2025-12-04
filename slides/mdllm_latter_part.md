@@ -372,7 +372,7 @@ Where:
 
 ---
 
-## Sequence Modelling on other Backbone: Mamba
+## DNA Sequence Modelling: Mamba
 
 <div style="font-size: 26px; line-height: 1.35; max-width: 780px; margin: 0 auto;">
   <div style="margin: 0 0 12px 0;">
@@ -416,7 +416,7 @@ Where:
 
 ---
 
-## DNA Sequence Modelling
+## DNA Sequence Downstream Tasks
 
 <div style="font-size: 26px; line-height: 1.35; max-width: 1180px; margin: 0 auto;">
   <div style="margin: 0 0 12px 0;">
@@ -505,6 +505,6 @@ Where:
 ---
 <div style="text-align: center;">
 
-> Thank!
+> Thanks!
 
 </div>
