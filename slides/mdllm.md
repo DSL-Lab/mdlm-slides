@@ -303,7 +303,7 @@ $$ \mathcal{L}\_{\text{NELBO}}^\infty = \mathbb{E}\_{q} \int_{0}^{1} \frac{\alph
 ## Sampling / Inference Process
 
 <div style="text-align: center;">
-  <img src="figures/sampling_v2.png" alt="Sampling Process" style="max-width: 90%; height: auto; display: inline-block;">
+  <img src="figures/sampling_v2.png" alt="Sampling Process" style="max-width: 100%; height: auto; display: inline-block;">
 </div>
 
 ---
