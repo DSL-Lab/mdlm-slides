@@ -272,9 +272,10 @@ $$ \mathcal{L}\_{\text{NELBO}}^\infty = \mathbb{E}\_{q} \int_{0}^{1} \frac{\alph
 **Conclusion:** MDLM training is **weighted Masked Language Modeling**. It establishes a connection between diffusion models and **encoder-only BERT models**.
 
 ---
----
 
 ## Sampling / Inference Process
+
+![Sampling Process](slides/figures/mdlm_sampling.png)
 
 ---
 
